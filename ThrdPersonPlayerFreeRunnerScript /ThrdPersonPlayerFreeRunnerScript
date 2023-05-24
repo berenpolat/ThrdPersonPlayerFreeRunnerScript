@@ -1,0 +1,30 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Android;
+
+public class PlayerMovements : MonoBehaviour
+{
+    public float moveSpeed = 2f;
+    public CharacterController characterController;
+    public Rigidbody rb;
+
+    private void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        //TODO: Add jumping mechanics
+        float verticalInput = Input.GetAxis("Vertical");
+
+
+        rb.AddForce(transform.forward*moveSpeed);
+        
+    }
+}
